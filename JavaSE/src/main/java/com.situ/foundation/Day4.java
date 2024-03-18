@@ -12,7 +12,7 @@ public class Day4 {
         String str = "ABaA";
         String newStr = str.replace('A', 'B');
         System.out.println(newStr);
-
+        System.out.println("Day4.test");
     }
 
     //冒泡
