@@ -13,6 +13,15 @@ public class Student {
         return name;
     }
 
+    public Student() {
+    }
+
+    public Student(int id, String name, String sex) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+    }
+
     public String getSex() {
         return sex;
     }
