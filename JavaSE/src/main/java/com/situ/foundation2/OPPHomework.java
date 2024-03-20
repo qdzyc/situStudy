@@ -1,4 +1,4 @@
-package com.situ.foundation;
+package com.situ.foundation2;
 
 import org.junit.Test;
 
