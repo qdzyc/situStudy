@@ -22,6 +22,7 @@ public class CalDemo {
 //        System.out.println(result3);
 
         //多态
+        //声明父类  new子类
         Cal cal = new Add(3, 5);
         System.out.println(cal.getResult());
 
