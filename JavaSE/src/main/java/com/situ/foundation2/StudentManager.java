@@ -44,9 +44,6 @@ public class StudentManager {
                             isFind = true;
                         }
                     }
-                    if (!isFind){
-                        System.out.println("您所搜索学生不存在");
-                    }
                     break;
                 case 2:
                     System.out.println("请输入要搜索的姓名：");
@@ -57,10 +54,6 @@ public class StudentManager {
                             isFind = true;
                         }
                     }
-                    if (!isFind){
-                        System.out.println("您所搜索学生不存在");
-                    }
-                    break;
                 case 3:
                     System.out.println("请输入要搜索的年龄：");
                     int age = scanner.nextInt();
@@ -70,10 +63,6 @@ public class StudentManager {
                             isFind = true;
                         }
                     }
-                    if (!isFind){
-                        System.out.println("您所搜索学生不存在");
-                    }
-                    break;
                 case 4:
                     System.out.println("请输入要搜索的性别：");
                     String gender = scanner.next();
@@ -83,12 +72,13 @@ public class StudentManager {
                             isFind = true;
                         }
                     }
-                    if (!isFind){
-                        System.out.println("您所搜索学生不存在");
-                    }
                     break;
                 default:
                     System.out.println("输入不合法，请重新输入");
+            }
+            if (!isFind){
+                System.out.println("您所搜索学生不存在");
+                System.out.println("---------------");
             }
 
         }
