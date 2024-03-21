@@ -25,5 +25,4 @@ public abstract class Cal {
     //抽象方法，无方法体，方法的声明(因方法体内无内容，仅仅需要一个名称)
     public abstract int getResult();
 
-
 }
