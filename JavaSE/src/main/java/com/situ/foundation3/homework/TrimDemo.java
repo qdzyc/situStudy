@@ -12,9 +12,9 @@ public class TrimDemo {
         char[] ch = str.toCharArray();
         int start = 0;
         int end = ch.length;
-        for (int i = 0; i < ch.length; i++) {
-            if (ch[i] != ' ') {
-                start = i;
+        for (char c : ch) {
+            start++;
+            if (c != ' ') {
                 break;
             }
         }
@@ -25,14 +25,14 @@ public class TrimDemo {
         }
         //去掉尾部的多余空格
         for (int i = ch.length - 1; i > 0; i--) {
+            end--;
             if (ch[i] != ' ') {
-                end = i;
                 break;
             }
         }
         //将除去首尾空格的字符char类型的数组拼接位字符串
         StringBuilder strNew = new StringBuilder();
-        for (int i = start; i <= end; i++) {
+        for (int i = start - 1; i <= end; i++) {
             strNew.append(ch[i]);
         }
 
