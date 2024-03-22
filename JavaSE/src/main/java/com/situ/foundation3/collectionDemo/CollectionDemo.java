@@ -12,15 +12,14 @@ public class CollectionDemo {
         Student[] students = new Student[3];
 
         ArrayList<Student> list = new ArrayList();
-        Student student = new Student();
         Student student1 = new Student();
         Student student2 = new Student();
-        list.add(student);
+        Student student3 = new Student();
         list.add(student1);
         list.add(student2);
-        for (Student student3 : list) {
+        list.add(student3);
+        for (Student student : list) {
             System.out.println(student);
         }
-
     }
 }
