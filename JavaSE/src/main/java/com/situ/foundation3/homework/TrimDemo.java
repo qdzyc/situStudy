@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class TrimDemo {
 
     public static void main(String[] args) {
-//        System.out.println(str.trim());
+        //System.out.println(str.trim());
         Scanner scanner = new Scanner(System.in);
         String str = scanner.nextLine();
         //找到第一个不为空格的字符
