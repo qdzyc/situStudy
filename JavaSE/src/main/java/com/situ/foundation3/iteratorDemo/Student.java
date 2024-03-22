@@ -1,4 +1,4 @@
-package com.situ.foundation2;
+package com.situ.foundation3.iteratorDemo;
 
 import lombok.Data;
 

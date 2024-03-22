@@ -10,8 +10,8 @@ public class CollectionDemo {
     public void test() {
         //数组的问题：下标确定，不够灵活
         Student[] students = new Student[3];
-
-        ArrayList<Student> list = new ArrayList();
+        //ArrayList解决这个问题
+        ArrayList<Student> list = new ArrayList<>();
         Student student1 = new Student();
         Student student2 = new Student();
         Student student3 = new Student();
