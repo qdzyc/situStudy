@@ -34,10 +34,10 @@ public class StudentManager {
             System.out.println("退出搜索请输入0");
             int search = scanner.nextInt();
             //卫操作
-            if(search == 0){
+            if (search == 0) {
                 return;
             }
-            boolean  isFind = false;
+            boolean isFind = false;
             switch (search) {
                 case 1:
                     System.out.println("请输入要搜索的ID：");
@@ -80,7 +80,7 @@ public class StudentManager {
                 default:
                     System.out.println("输入不合法，请重新输入");
             }
-            if (!isFind){
+            if (!isFind) {
                 System.out.println("您所搜索学生不存在");
                 System.out.println("---------------");
             }
