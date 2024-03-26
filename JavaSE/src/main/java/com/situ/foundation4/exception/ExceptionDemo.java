@@ -1,4 +1,4 @@
-package com.situ.foundation2;
+package com.situ.foundation4.exception;
 
 import org.junit.Test;
 
@@ -6,9 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class IODemo {
+public class ExceptionDemo {
     @Test
-    public void test() {
+    public void test1() {
         try{
             FileReader fileReader = new FileReader("E:\\思途\\io.txt");
             int ch1 = fileReader.read();
@@ -23,6 +23,22 @@ public class IODemo {
             e.printStackTrace();
         }catch (IOException e){
             e.printStackTrace();
+        }finally {
+            System.out.println("finally");
         }
+    }
+
+    @Test
+    public void test2() {
+        try {
+            show();
+        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
+            e.printStackTrace();
+        }
+    }
+
+    private void show() throws ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
     }
 }
