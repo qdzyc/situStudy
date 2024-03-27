@@ -198,11 +198,7 @@ public class IODemo {
             objectInputStream = new ObjectInputStream(fileInputStream);
             Student student = (Student) objectInputStream.readObject();
             System.out.println(student);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         } finally {
             if (objectInputStream != null) {
