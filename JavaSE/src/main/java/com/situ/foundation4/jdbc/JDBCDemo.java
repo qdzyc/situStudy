@@ -72,10 +72,14 @@ public class JDBCDemo {
     public void test2() {
         Connection connection = null;
         Statement statement = null;
+        //PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         try {
             connection = JDBCUtil.getConnection();
             String sql = "select id,name,age,gender from student";
+            //prepareStatement
+            //preparedStatement = connection.prepareStatement(sql);
+            //resultSet = preparedStatement.executeQuery();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sql);
             List<Student> list = new ArrayList<>();
