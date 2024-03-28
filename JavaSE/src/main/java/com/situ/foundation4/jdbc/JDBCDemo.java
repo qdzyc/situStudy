@@ -43,12 +43,12 @@ public class JDBCDemo {
             System.out.println(list);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        } finally {
+        } finally {//处理空值
             if (resultSet != null) {
                 try {
                     resultSet.close();
                 } catch (SQLException e) {
-                     e.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             if (statement != null) {
@@ -95,7 +95,96 @@ public class JDBCDemo {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JDBCUtil.close(connection,statement,resultSet);
+            JDBCUtil.close(connection, statement, resultSet);
+        }
+    }
+
+    @Test
+    public void testInsert() {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "Insert into student(name,age,gender) values (?,?,?)";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "张三");
+            preparedStatement.setInt(2, 23);
+            preparedStatement.setString(3, "男");
+            int count = preparedStatement.executeUpdate();
+            System.out.println(count);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection, preparedStatement, null);
+        }
+    }
+
+    @Test
+    public void testDelete() {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "delete from student where id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, 7);
+            int count = preparedStatement.executeUpdate();
+            System.out.println(count);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection, preparedStatement, null);
+        }
+    }
+
+    @Test
+    public void testUpdate() {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "update student set name = ?, age = ?, gender = ? where id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "李");
+            preparedStatement.setInt(2, 24);
+            preparedStatement.setString(3, "男");
+            preparedStatement.setInt(4, 4);
+            int count = preparedStatement.executeUpdate();
+            System.out.println(count);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection, preparedStatement, null);
+        }
+    }
+
+    @Test
+    public void testSelectLike() {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "select id, name, age, gender from student where name like ? ";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, "李%");
+            resultSet = preparedStatement.executeQuery();
+            ArrayList<Student> students = new ArrayList<>();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                int age = resultSet.getInt("age");
+                String gender = resultSet.getString("gender");
+                Student student = new Student(id, name, age, gender);
+                students.add(student);
+            }
+            for (Student student : students) {
+                System.out.println(student);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtil.close(connection, preparedStatement, resultSet);
         }
     }
 }
